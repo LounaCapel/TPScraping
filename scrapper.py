@@ -39,11 +39,11 @@ Entree : soup
 Sortie : nombre de like
 '''
 def TrouverNbrLike(soup):
-    results = soup.find_all("script")
+    results : str = soup.find_all("script")
     pattern : int = 0
     for result in results :
-        pattern = re.compile(r'([0-9]*.?[0-9]*[0-9]).?clics')
-        match = pattern.search(str(result))
+        pattern : str = re.compile(r'([0-9]*.?[0-9]*[0-9]).?clics')
+        match : str = pattern.search(str(result))
         if match:
             nb = (match.group(1))
             break
@@ -55,7 +55,7 @@ Entree : soup
 Sortie : description de la video
 '''
 def TrouverDescription (soup) :
-    pattern = re.compile('(?<=shortDescription":").*(?=","isCrawlable)')
+    pattern : str = re.compile('(?<=shortDescription":").*(?=","isCrawlable)')
     return (pattern.findall(str(soup))[0].replace('\\n','\n'))
 
 '''
@@ -65,13 +65,13 @@ Sortie : liens de la description
 '''
 def TrouverLienDescription():
     results = soup.find_all("script")
-    pattern :int = 0
+    pattern : int = 0
     for result in results :
-        pattern = re.compile(r'descriptionBodyText(.*)showMoreText')
-        match = pattern.search(str(result))
+        pattern : str = re.compile(r'descriptionBodyText(.*)showMoreText')
+        match : str = pattern.search(str(result))
         if match:
-            pattern2 = re.compile(r'(?:{"text":"((?:[^\\"]|\\"|\\))"[^}]})*')
-            match2 = pattern2.search(str(match.group(1)))
+            pattern2 : str = re.compile(r'(?:{"text":"((?:[^\\"]|\\"|\\))"[^}]})*')
+            match2 : str = pattern2.search(str(match.group(1)))
             if match2:
                 break
     return (match2.group(1))
@@ -82,7 +82,7 @@ Entree : soup
 Sortie : commentaires
 '''
 def TrouverCommentaire (soup) :
-    pattern = re.compile(r'Content":{"simpleText":"((?:[^\\"]|\\"|\\)*)"},"trackingParams')
+    pattern : str = re.compile(r'Content":{"simpleText":"((?:[^\\"]|\\"|\\)*)"},"trackingParams')
     return (pattern.findall(str(soup))[0].replace('\\n','\n'))
 
 '''
