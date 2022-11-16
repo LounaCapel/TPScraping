@@ -28,6 +28,6 @@ def test_NbrLike():
     
 def test_Description():
     assert (("Chaleureux remerciements" in TrouverDescription(soup)) and ("Manon Montoriol" in TrouverDescription(soup)))
-
-'''def test_LienDescription():
-    assert ((TrouverLienDescription()[0]==https://www.youtube.com/watch?v=fmsoym8I-3o&t=0s) and (TrouverLienDescription()[3]==https://www.youtube.com/watch?v=fmsoym8I-3o&t=611s))'''
+    
+def test_Description():
+    assert ("Carrément j'ai quitté la vidéo de Squeezie" in TrouverCommentaire(soup))
