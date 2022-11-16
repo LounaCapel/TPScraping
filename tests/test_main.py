@@ -17,13 +17,17 @@ video_url = "https://www.youtube.com/watch?v=fmsoym8I-3o&t=2s"
 page = requests.get(video_url) 
 soup = BeautifulSoup(page.content, "html.parser")  
 
-def test_title():
-    assert TrouverTitre() == "Pierre Niney : L’interview face cachée par HugoDécrypte"
+def test_Titre():
+    assert TrouverTitre(soup) == "Pierre Niney : L’interview face cachée par HugoDécrypte"
     
-def test_autor():
-    assert TrouverAuteur() == "HugoDécrypte"
+def test_Auteur():
+    assert TrouverAuteur(soup) == "HugoDécrypte"
     
 def test_NbrLike():
-    assert int(TrouverNbrLike()) >= 30400
+    assert int(TrouverNbrLike(soup)) >= 30400
     
+def test_Description():
+    assert (("Chaleureux remerciements" in TrouverDescription(soup)) and ("Manon Montoriol" in TrouverDescription(soup)))
 
+'''def test_LienDescription():
+    assert ((TrouverLienDescription()[0]==https://www.youtube.com/watch?v=fmsoym8I-3o&t=0s) and (TrouverLienDescription()[3]==https://www.youtube.com/watch?v=fmsoym8I-3o&t=611s))'''
