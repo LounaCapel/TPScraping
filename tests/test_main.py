@@ -29,5 +29,5 @@ def test_NbrLike():
 def test_Description():
     assert (("Chaleureux remerciements" in TrouverDescription(soup)) and ("Manon Montoriol" in TrouverDescription(soup)))
     
-def test_Description():
+def test_Commentaire():
     assert ("Carrément j'ai quitté la vidéo de Squeezie" in TrouverCommentaire(soup))
