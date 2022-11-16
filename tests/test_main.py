@@ -8,7 +8,7 @@ Created on Wed Nov 16 11:13:24 2022
 
 import sys
 sys.path.append("../")
-from scraping import *
+from scrapper import *
 
 import requests
 from bs4 import BeautifulSoup 
